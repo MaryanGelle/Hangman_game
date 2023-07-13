@@ -7,11 +7,13 @@ wordChoice = ("noise", "ears", "skin", "5", "25", "egypt", "up", "oxygen", "food
 chosen_word = random.choice(wordChoice)
 print(chosen_word)
 
-display=()
+display = ""
 for letter in chosen_word:
     display += '_'
 
+
 print(display)
+guessed_letter=input("guess a letter: ")
 
 
 # choose a random word
