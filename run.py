@@ -1,3 +1,4 @@
+import random
 import gspread
 from google.oath2.service_account import Credentials
 
@@ -48,3 +49,70 @@ print(top_ten_data)
 user_name = "Maay"
 user_score = 40
 update_leaderboard(user_name, user_score)
+
+
+
+# Hangman game code
+
+print("Welcome to Hangman Game")
+
+wordChoice =("noise", "ears", "skin", "5", "25", "egypt", "up", "oxygen", "food", "booring")
+
+# choose a random word
+
+
+
+def print_hangman(wrong):
+
+		if guesses == 0:
+			print "________      "
+			print "|      |      "
+			print "|             "
+			print "|             "
+			print "|             "
+			print "|             "
+		elif guesses == 1:
+			print "________      "
+			print "|      |      "
+			print "|      0      "
+			print "|             "
+			print "|             "
+			print "|             "
+		elif guesses == 2:
+			print "________      "
+			print "|      |      "
+			print "|      0      "
+			print "|      |       "
+			print "|             "
+			print "|             "
+		elif guesses == 3:
+			print "________      "
+			print "|      |      "
+			print "|      0      "
+			print "|     /|      "
+			print "|             "
+			print "|             "
+		elif guesses == 4:
+			print "________      "
+			print "|      |      "
+			print "|      0      "
+			print "|     /|\     "
+			print "|             "
+			print "|             "
+		elif guesses == 5:
+			print "________      "
+			print "|      |      "
+			print "|      0      "
+			print "|     /|\     "
+			print "|     /       "
+			print "|             "
+		else: guesses == 6:
+			print "________      "
+			print "|      |      "
+			print "|      0      "
+			print "|     /|\     "
+			print "|     / \     "
+			print "|             "
+			print "Wrong answer hanged the man"
+			print "Game over!"
+			self.__init__()
