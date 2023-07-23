@@ -1,6 +1,7 @@
 import random
 
 
+
 def print_hangman(guesses):
     if guesses == 6:
         print("________    ")
@@ -123,12 +124,14 @@ def hangman():
         print("Sorry, you lost the game.")
 
     # Ask the user if they want to play again
-    play_again_input = input("Do you want to play again? (yes/no): ").lower()
-    if play_again_input == "yes":
-        # Clear the guessed_letters list for the next game
-         guessed_letters.clear()
-         
-    else:
-        print("Thank you for taking your time playing our Hangman game!")
+    play_again_input = input("Do you want to play again? Type 'y' for yes and 'n' for no. ").upper()
+    if (play_again_input == "n"):
+        play = False
+    
+    # Use recursion to restart the game if the player wants to play again
+    if play:
+        hangman()
+
+    print("Thank you for taking your time playing our Hangman game!")
 
 hangman()
