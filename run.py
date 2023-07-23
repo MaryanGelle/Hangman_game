@@ -1,9 +1,6 @@
 import random
 
 
-print("Welcome to Hangman Game")
-
-
 def print_hangman(guesses):
     if guesses == 6:
         print("________    ")
@@ -56,11 +53,14 @@ def print_hangman(guesses):
         print("|           ")
         print("Wrong answer hanged the man")
         print("Game over!")
-
+     # Add the unit information for incorrect guesses
+    print(f"You have {guesses} {'tries' if guesses > 1 else 'try'} left.")
+def guesses_left(guesses):
+    return guesses
 
 def hangman():
     # List of words to choose from 
-    wordChoice = ["noise", "ears", "skin", "5", "25", "egypt", "up", "oxygen", "food", "summer"]
+    wordChoice = ["noise", "ears", "skin", "sick", "happy", "egypt", "up", "oxygen", "food", "summer"]
 
     # Select a random word from the list 
     chosen_word = random.choice(wordChoice)
@@ -103,6 +103,10 @@ def hangman():
             print("Wrong guess!")
             guesses -= 1
         
+        # Add the guessed letter to the list of guessed_letters
+        guessed_letters.append(guess)
+
+
         # Check if the player has won
         if all(letter in guessed_letters for letter in chosen_word):
             print("Congratulations! You won! The word was correct")
@@ -112,5 +116,13 @@ def hangman():
     if guesses == 0:
         print("Sorry, you lost the game.")
 
+    # Ask the user if they want to play again
+    play_again_input = input("Do you want to play again? (yes/no): ").lower()
+    if play_again_input == "yes":
+        # Clear the guessed_letters list for the next game
+         guessed_letters.clear()
+         
+    else:
+        print("Thank you for taking your time playing our Hangman game!")
 
 hangman()
