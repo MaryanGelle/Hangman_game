@@ -59,11 +59,17 @@ def guesses_left(guesses):
     return guesses
 
 def hangman():
-    # List of words to choose from 
-    wordChoice = ["noise", "ears", "skin", "sick", "happy", "egypt", "up", "oxygen", "food", "summer"]
+    level = input("Choose a word level (easy/intermediate/difficult): ").lower()
+   
+    # Dictionary to hold word choices for each category
+    word_choices = {
+        "easy": ["food", "down", "happy", "eat", "run", "west", "money", "sweet", "mango"],
+        "intermediate": ["Internet", "Dangerous", "connection", "worldwide", "Assumption", "Pandemic", "switch", "colonial"],
+        "difficult": ["appraise", "ambiguous", "nauseous", "Indict", "Sherbet", "Ingenious"]
+    }
 
-    # Select a random word from the list 
-    chosen_word = random.choice(wordChoice)
+    # Select a random word from the chosen level
+    chosen_word = random.choice(word_choices.get(level, []))
 
     # Game state
     guesses = 6
