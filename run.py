@@ -61,7 +61,7 @@ def guesses_left(guesses):
 
 def hangman():
     level = input("Choose a word level (easy/intermediate/difficult): ").lower()
-   
+        
     # Dictionary to hold word choices for each category
     word_choices = {
         "easy": ["food", "down", "happy", "eat", "run", "west", "money", "sweet", "mango"],
@@ -125,13 +125,13 @@ def hangman():
 
     # Ask the user if they want to play again
     play_again_input = input("Do you want to play again? Type 'y' for yes and 'n' for no. ").upper()
-    if (play_again_input == "n"):
-        play = False
-    
-    # Use recursion to restart the game if the player wants to play again
-    if play:
-        hangman()
+    return play_again_input == "y"
 
-    print("Thank you for taking your time playing our Hangman game!")
+# Start the game loop
+while True:
+    if not hangman():
+        break
+
+print("Thank you for taking your time playing our Hangman game!")
 
 hangman()
