@@ -1,2 +1,6 @@
-random
-colorama
+Flask==2.0.1
+requests==2.26.0
+numpy==1.22.0
+pandas==1.4.1
+matplotlib==3.5.1
+colorama==0.4.4

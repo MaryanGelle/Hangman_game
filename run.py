@@ -1,5 +1,7 @@
 import random
 
+import sys
+
 scores = {} # Dictionary to store scores
 play = True  # Declare the global variable 'play'
 
@@ -139,22 +141,22 @@ def hangman():
     play_again_input = input("Do you want to play again? Type 'y' for yes and 'n' for no. ").upper()
     
     # Update the scores based on the game result
-    if play_again_input == "y" and username in scores:
+    if play_again_input == "Y" and username in scores:
         scores[username]["games_played"] += 1
         if all(letter in guessed_letters for letter in chosen_word):
             scores[username]["games_won"] += 1
-    
-    return play_again_input == "y"
+
+        hangman()
+    else:
+        # Display scores
+        print("\nScoreboard:")
+        for username, score in scores.items():
+            print(f"{username}: {score['games_won']}/{score['games_played']}")  
+
+        print("Thank you for taking your time playing our Hangman game!")
+
+        # Exit the program so that the while loop will not run
+        sys.exit()
 
 
-
-# if play again start the game loop
-while play:
-    hangman()
-
-# Display scores
-print("\nScoreboard:")
-for username, score in scores.items():
-    print(f"{username}: {score['games_won']}/{score['games_played']}")  
-
-print("Thank you for taking your time playing our Hangman game!")
+hangman()
