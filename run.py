@@ -139,7 +139,7 @@ def hangman():
     play_again_input = input("Do you want to play again? Type 'y' for yes and 'n' for no. ").upper()
     
     # Update the scores based on the game result
-    if play_again_input == "Y" and username in scores:
+    if play_again_input == "y" and username in scores:
         scores[username]["games_played"] += 1
         if all(letter in guessed_letters for letter in chosen_word):
             scores[username]["games_won"] += 1
@@ -148,9 +148,9 @@ def hangman():
 
 
 
-# Start the game loop
+# if play again start the game loop
 while play:
-   play = hangman()
+    hangman()
 
 # Display scores
 print("\nScoreboard:")
