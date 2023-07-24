@@ -1,5 +1,7 @@
 import random
 
+play = True  # Declare the global variable 'play'
+
 
 
 def print_hangman(guesses):
@@ -60,6 +62,8 @@ def guesses_left(guesses):
     return guesses
 
 def hangman():
+    global play  # Declare 'play' as global to modify its value inside the function.  Use the global 'play' variable in the loop condition.
+
     level = input("Choose a word level (easy/intermediate/difficult): ").lower()
         
     # Dictionary to hold word choices for each category
@@ -128,10 +132,7 @@ def hangman():
     return play_again_input == "y"
 
 # Start the game loop
-while True:
-    if not hangman():
-        break
+while play:
+    hangman()
 
 print("Thank you for taking your time playing our Hangman game!")
-
-hangman()
