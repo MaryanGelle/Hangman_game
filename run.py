@@ -152,4 +152,9 @@ def hangman():
 while play:
    play = hangman()
 
+# Display scores
+print("\nScoreboard:")
+for username, score in scores.items():
+    print(f"{username}: {score['games_won']}/{score['games_played']}")  
+
 print("Thank you for taking your time playing our Hangman game!")
