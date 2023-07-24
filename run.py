@@ -1,5 +1,6 @@
 import random
-score = {} # Store scores
+
+scores = {} # Dictionary to store scores
 play = True  # Declare the global variable 'play'
 
 
@@ -62,12 +63,14 @@ def guesses_left(guesses):
     return guesses
 
 def hangman():
-    global play  # Declare 'play' as global to modify its value inside the function.  Use the global 'play' variable in the loop condition.
+    global play, scores # Declare 'play' and 'scores' as global to modify its value inside the function.  Use the global 'play' variable in the loop condition.  
 
     # Ask for the player's username only once at the beginning of the first game
     if "username" not in globals():
         global username  # Declare 'username' as global to modify its value inside the function
         username = input("Enter your username: ")
+        if username not in scores:
+            scores[username] = {"games_played": 0, "games_won": 0}
 
     level = input("Choose a word level (easy/intermediate/difficult): ").lower()
         
@@ -134,12 +137,19 @@ def hangman():
 
     # Ask the user if they want to play again
     play_again_input = input("Do you want to play again? Type 'y' for yes and 'n' for no. ").upper()
+    
+    # Update the scores based on the game result
+    if play_again_input == "Y" and username in scores:
+        scores[username]["games_played"] += 1
+        if all(letter in guessed_letters for letter in chosen_word):
+            scores[username]["games_won"] += 1
+    
     return play_again_input == "y"
 
 
 
 # Start the game loop
 while play:
-    hangman()
+   play = hangman()
 
 print("Thank you for taking your time playing our Hangman game!")
