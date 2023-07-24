@@ -66,8 +66,9 @@ def hangman():
 
     # Ask for the player's username only once at the beginning of the first game
     if "username" not in globals():
+        global username  # Declare 'username' as global to modify its value inside the function
         username = input("Enter your username: ")
-        
+
     level = input("Choose a word level (easy/intermediate/difficult): ").lower()
         
     # Dictionary to hold word choices for each category
