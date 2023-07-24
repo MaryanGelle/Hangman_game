@@ -1,32 +1,39 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Hangman Game
 
-Welcome,
+The Hangman game is a simple word-guessing game where the player needs to guess the letters of a secret word. The player has a limited number of attempts to guess the correct word, and for each incorrect guess, a part of a hangman is drawn. The game ends when the player either guesses the word correctly or the hangman is completed.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+## How to Play
 
-## Reminders
+1. Run the Hangman game by executing the `hangman.py` script using Python.
+2. Choose a word level (easy/intermediate/difficult) to get started.
+3. You have six chances to guess the letters of the secret word.
+4. Enter a single letter as your guess.
+5. If the letter is part of the secret word, it will be revealed. Otherwise, a part of the hangman is drawn.
+6. Continue guessing letters until you either guess the complete word or the hangman is completed.
+7. If you run out of attempts, the game ends, and the hangman is fully drawn, resulting in a loss.
+8. After each game, you will be asked if you want to play again.
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+## Play the Game Online
 
-## Creating the Heroku app
+You can play the Hangman game online by visiting the live app deployed on Heroku:
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+**Play Here:** [https://thehangman-game-c4850bfdcf57.herokuapp.com/](https://thehangman-game-c4850bfdcf57.herokuapp.com/)
 
-1. `heroku/python`
-2. `heroku/nodejs`
+Please ensure you have JavaScript enabled in your browser for the best experience.
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+## Word Levels
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+The Hangman game offers three levels of difficulty:
+- Easy: Words related to common objects and everyday life.
+- Intermediate: Words with a moderate level of difficulty.
+- Difficult: More challenging words for advanced players.
 
-Connect your GitHub repository and deploy as normal.
+## Dependencies
 
-## Constraints
+The Hangman game is implemented using Python and Flask as the web framework. Ensure you have the following dependencies installed:
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+- Python 3.x
+- Flask (can be installed using `pip`)
 
----
-
-Happy coding!
+```bash
+pip install Flask
